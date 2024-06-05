@@ -388,6 +388,9 @@
 (defpsmacro $.contains (container contained)
   `($-> (contains ,container ,contained)))
 
+(defpsmacro $.extend (target object1 &rest objects)
+  `($-> (extend ,target ,object1 ,@objects)))
+
 (defpsmacro $.post (uri data handler)
   `($-> (post ,uri ,data ,handler)))
 
