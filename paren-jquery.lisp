@@ -400,6 +400,9 @@
 (defpsmacro $.get-json (uri data handler)
   `($-> (get-j-s-o-n ,uri ,data ,handler)))
 
+(defpsmacro $.get-script (url &optional handler)
+  `($-> (get-script ,url ,@(when handler (list handler)))))
+
 (defpsmacro $.grep (lst handler)
   `($-> (grep ,lst ,handler)))
 
