@@ -115,16 +115,16 @@
            #:$wrap
            #:$wrap-all
            #:$wrap-inner
-           #:$.ajax
-           #:$.contains
-           #:$.post
-           #:$.get
-           #:$.get-json
-           #:$.grep
-           #:$.map
-           #:$.now
-           #:$.parse-html
-           #:$.parse-xml
+           #:$-ajax
+           #:$-contains
+           #:$-post
+           #:$-get
+           #:$-get-json
+           #:$-grep
+           #:$-map
+           #:$-now
+           #:$-parse-html
+           #:$-parse-xml
            #:$existsp
            #:$doc-ready
            #:$append-html

@@ -382,42 +382,42 @@
 
 
 ;; FUNCTIONS
-(defpsmacro $.ajax (url &rest settings)
+(defpsmacro $-ajax (url &rest settings)
   `($-> (ajax ,url (%h ,@settings))))
 
-(defpsmacro $.contains (container contained)
+(defpsmacro $-contains (container contained)
   `($-> (contains ,container ,contained)))
 
-(defpsmacro $.extend (target object1 &rest objects)
+(defpsmacro $-extend (target object1 &rest objects)
   `($-> (extend ,target ,object1 ,@objects)))
 
-(defpsmacro $.post (uri data handler)
+(defpsmacro $-post (uri data handler)
   `($-> (post ,uri ,data ,handler)))
 
-(defpsmacro $.get (uri data handler)
+(defpsmacro $-get (uri data handler)
   `($-> (get ,uri ,data ,handler)))
 
-(defpsmacro $.get-json (uri data handler)
+(defpsmacro $-get-json (uri data handler)
   `($-> (get-j-s-o-n ,uri ,data ,handler)))
 
-(defpsmacro $.get-script (url &optional handler)
+(defpsmacro $-get-script (url &optional handler)
   `($-> (get-script ,url ,@(when handler (list handler)))))
 
-(defpsmacro $.grep (lst handler)
+(defpsmacro $-grep (lst handler)
   `($-> (grep ,lst ,handler)))
 
-(defpsmacro $.map (lst handler)
+(defpsmacro $-map (lst handler)
   `($-> (map ,lst ,handler)))
 
-(defpsmacro $.now ()
+(defpsmacro $-now ()
   `($-> (now)))
 
-(defpsmacro $.parse-html (data &key context keep-scripts)
+(defpsmacro $-parse-html (data &key context keep-scripts)
   `($-> (parse-h-t-m-l ,data
                        ,@(when context (list context))
                        ,@(when keep-scripts (list keep-scripts)))))
 
-(defpsmacro $.parse-xml (data)
+(defpsmacro $-parse-xml (data)
   `($-> (parse-x-m-l ,data)))
 
 ;; ADDITIONAL
