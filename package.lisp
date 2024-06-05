@@ -117,9 +117,11 @@
            #:$wrap-inner
            #:$-ajax
            #:$-contains
+           #:$-extend
            #:$-post
            #:$-get
            #:$-get-json
+           #:$-get-script
            #:$-grep
            #:$-map
            #:$-now
