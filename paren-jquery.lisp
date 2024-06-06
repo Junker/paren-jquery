@@ -70,8 +70,8 @@
                        (append (list prop1) props)
                        prop1))))
 
-(defpsmacro $data (subject &optional (val nil valp))
-  `($ ,subject (data ,@(when valp (list val)))))
+(defpsmacro $data (subject key &optional (val nil valp))
+  `($ ,subject (data ,key ,@(when valp (list val)))))
 
 (defpsmacro $dblclick (subject handler &optional event-data)
   `(%event-handler dblclick ,subject ,handler ,event-data))
