@@ -336,8 +336,9 @@
   `($ ,subject (slide-up ,@(when duration (list duration))
                          ,@(when complete (list complete)))))
 
-(defpsmacro $submit (subject handler &optional event-data)
-  `(%event-handler submit ,subject ,handler ,event-data))
+(defpsmacro $submit (subject &optional handler event-data)
+  `($ ,subject (submit ,@(when data (list data))
+                       ,@(when handler (list handler)))))
 
 (defpsmacro $text (subject &optional (val nil valp))
   `($ ,subject (text ,@(when valp (list val)))))
