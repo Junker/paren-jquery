@@ -337,7 +337,7 @@
                          ,@(when complete (list complete)))))
 
 (defpsmacro $submit (subject &optional handler event-data)
-  `($ ,subject (submit ,@(when data (list data))
+  `($ ,subject (submit ,@(when event-data (list event-data))
                        ,@(when handler (list handler)))))
 
 (defpsmacro $text (subject &optional (val nil valp))
