@@ -427,10 +427,7 @@
   `(> (@ ($ ,subject) length) 0))
 
 (defpsmacro $doc-ready (&body body)
-  `($ document (ready (fn ,@body))))
-
-
-
+  `($ document (ready (lambda () ,@body))))
 
 
 (defpsmacro $append-html (target &rest html)
