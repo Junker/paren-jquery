@@ -126,6 +126,7 @@
            #:$-grep
            #:$-map
            #:$-now
+           #:$-noop
            #:$-parse-html
            #:$-parse-xml
            #:$existsp

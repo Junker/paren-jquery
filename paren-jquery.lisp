@@ -416,6 +416,9 @@
 (defpsmacro $-map (lst handler)
   `($-> (map ,lst ,handler)))
 
+(defpsmacro $-noop ()
+  `($-> (noop)))
+
 (defpsmacro $-now ()
   `($-> (now)))
 
