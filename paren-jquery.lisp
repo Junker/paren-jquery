@@ -27,6 +27,12 @@
 (defpsmacro $after (subject content)
   `($ ,subject (after ,content)))
 
+(defpsmacro $animate (subject properties &key duration easing complete)
+  `($ ,subject (animate ,properties
+                        ,@(when duration (list duration))
+                        ,@(when easing (list easing))
+                        ,@(when complete (list complete)))))
+
 (defpsmacro $attr (subject attr-name)
   `($ ,subject (attr ,attr-name)))
 

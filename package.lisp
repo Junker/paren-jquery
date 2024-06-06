@@ -6,6 +6,7 @@
            #:$add-back
            #:$add-class
            #:$after
+           #:$animate
            #:$attr
            #:$append-to
            #:$append
