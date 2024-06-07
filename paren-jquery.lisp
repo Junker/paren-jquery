@@ -33,8 +33,8 @@
                         ,@(when easing (list easing))
                         ,@(when complete (list complete)))))
 
-(defpsmacro $attr (subject attr-name)
-  `($ ,subject (attr ,attr-name)))
+(defpsmacro $attr (subject attr-name &optional (val nil valp))
+  `($ ,subject (attr ,attr-name ,@(when valp (list val)))))
 
 (defpsmacro $append-to (subject target)
   `($ ,subject (append-to ,target)))
