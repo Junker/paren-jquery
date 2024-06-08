@@ -449,17 +449,17 @@
   `($ ,target (replace-with (who-ps-html ,@html))))
 
 (defpsmacro do-$each ((index element selector) &body body)
-  `(-> $ (each ,selector (lambda (,index ,element)
-                           ,@body))))
+  `(chain $ (each ,selector (lambda (,index ,element)
+                              ,@body))))
 
 (defpsmacro $deferred ()
-  `(-> $ (-deferred)))
+  `(chain $ (-deferred)))
 
 (defpsmacro $deferred-resolve (defer &rest args)
-  `(-> ,defer (resolve ,@args)))
+  `(chain ,defer (resolve ,@args)))
 
 (defpsmacro $deferred-reject (defer &rest args)
-  `(-> ,defer (reject ,@args)))
+  `(chain ,defer (reject ,@args)))
 
 (defpsmacro with-$deferred ((defer) &body body)
   `(let ((,defer ($-> (-deferred))))
