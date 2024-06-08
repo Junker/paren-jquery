@@ -395,6 +395,9 @@
 (defpsmacro $-contains (container contained)
   `($-> (contains ,container ,contained)))
 
+(defpsmacro $-each (subject callback)
+  `($-> (each ,subject ,callback)))
+
 (defpsmacro $-extend (target object1 &rest objects)
   `($-> (extend ,target ,object1 ,@objects)))
 
@@ -448,9 +451,9 @@
 (defpsmacro $replace-html (target &rest html)
   `($ ,target (replace-with (who-ps-html ,@html))))
 
-(defpsmacro do-$each ((index element selector) &body body)
-  `(chain $ (each ,selector (lambda (,index ,element)
-                              ,@body))))
+(defpsmacro do-$each ((index element subject) &body body)
+  `(chain $ (each ,subject (lambda (,index ,element)
+                             ,@body))))
 
 (defpsmacro $deferred ()
   `(chain $ (-deferred)))
