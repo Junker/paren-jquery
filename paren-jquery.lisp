@@ -317,8 +317,9 @@
 (defpsmacro $serialize-array (subject)
   `($ ,subject (serialize-array)))
 
-(defpsmacro $show (subject &key duration complete)
+(defpsmacro $show (subject &key duration easing complete)
   `($ ,subject (show ,@(when duration (list duration))
+                     ,@(when easing (list easing))
                      ,@(when complete (list complete)))))
 
 (defpsmacro $siblings (subject &optional selector)
