@@ -146,6 +146,11 @@
 (defpsmacro $height (subject &optional (val nil valp))
   `($ ,subject (height ,@(when valp (list val)))))
 
+(defpsmacro $hide (subject &key duration easing complete)
+  `($ ,subject (hide ,@(when duration (list duration))
+                     ,@(when easing (list easing))
+                     ,@(when complete (list complete)))))
+
 (defpsmacro $hover (subject handler-in &optional handler-out)
   `($ ,subject (hover ,handler-in ,@(when handler-out (list handler-out)))))
 
