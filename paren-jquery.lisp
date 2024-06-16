@@ -268,6 +268,9 @@
   `($ ,subject (promise ,@(when type (list type))
                         ,@(when target (list target)))))
 
+(defpsmacro $prop (subject name &optional (val nil valp))
+  `($ ,subject (prop ,name ,@(when valp (list val)))))
+
 (defpsmacro $ready (subject handler)
   `($ ,subject (ready ,handler)))
 

@@ -82,6 +82,7 @@
            #:$prev-all
            #:$prev-until
            #:$promise
+           #:$prop
            #:$ready
            #:$remove
            #:$remove-attr
