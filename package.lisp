@@ -40,6 +40,7 @@
            #:$get
            #:$has
            #:$has-class
+           #:$hide
            #:$height
            #:$hover
            #:$html
