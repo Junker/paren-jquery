@@ -390,9 +390,6 @@
 (defpsmacro $-extend (target object1 &rest objects)
   `($-> (extend ,target ,object1 ,@objects)))
 
-(defpsmacro $-post (uri data handler)
-  `($-> (post ,uri ,data ,handler)))
-
 (defpsmacro $-get (uri data handler)
   `($-> (get ,uri ,data ,handler)))
 
@@ -421,6 +418,12 @@
 
 (defpsmacro $-parse-xml (data)
   `($-> (parse-x-m-l ,data)))
+
+(defpsmacro $-post (uri data handler)
+  `($-> (post ,uri ,data ,handler)))
+
+(defpsmacro $-trim (str)
+  `($-> (trim ,str)))
 
 ;; ADDITIONAL
 

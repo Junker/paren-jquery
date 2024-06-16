@@ -120,7 +120,6 @@
            #:$-ajax
            #:$-contains
            #:$-extend
-           #:$-post
            #:$-get
            #:$-get-json
            #:$-get-script
@@ -130,6 +129,8 @@
            #:$-noop
            #:$-parse-html
            #:$-parse-xml
+           #:$-post
+           #:$-trim
            #:$existsp
            #:$doc-ready
            #:$append-html
