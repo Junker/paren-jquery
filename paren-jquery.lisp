@@ -68,10 +68,8 @@
 (defpsmacro $contextmenu (subject handler)
   `($ ,subject (contextmenu ,handler)))
 
-(defpsmacro $css (subject prop1 &rest props)
-  `($ ,subject (css ,(when props
-                       (append (list prop1) props)
-                       prop1))))
+(defpsmacro $css (subject name &optional (val nil valp))
+  `($ ,subject (css ,name ,@(when valp (list val)))))
 
 (defpsmacro $data (subject key &optional (val nil valp))
   `($ ,subject (data ,key ,@(when valp (list val)))))
