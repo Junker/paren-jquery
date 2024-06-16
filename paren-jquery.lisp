@@ -342,9 +342,11 @@
 (defpsmacro $to-array (subject)
   `($ ,subject (to-array)))
 
+(defpsmacro $toggle (subject &rest args)
+  `($ ,subject (toggle ,@args)))
+
 (defpsmacro $toggle-class (subject class)
   `($ ,subject (toggle-class ,class)))
-
 
 (defpsmacro $trigger (subject event-type &optional params)
   `($ ,subject (trigger ,event-type ,@(when params (list params)))))

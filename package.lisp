@@ -107,6 +107,7 @@
            #:$submit
            #:$text
            #:$to-array
+           #:$toggle
            #:$toggle-class
            #:$trigger
            #:$trigger-handler
