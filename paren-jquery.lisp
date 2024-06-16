@@ -27,11 +27,8 @@
 (defpsmacro $after (subject content)
   `($ ,subject (after ,content)))
 
-(defpsmacro $animate (subject properties &key duration easing complete)
-  `($ ,subject (animate ,properties
-                        ,@(when duration (list duration))
-                        ,@(when easing (list easing))
-                        ,@(when complete (list complete)))))
+(defpsmacro $animate (subject properties &rest args)
+  `($ ,subject (animate ,properties ,@args)))
 
 (defpsmacro $attr (subject attr-name &optional (val nil valp))
   `($ ,subject (attr ,attr-name ,@(when valp (list val)))))
@@ -100,18 +97,14 @@
 (defpsmacro $even (subject)
   `($ ,subject (even)))
 
-(defpsmacro $fade-in (subject &key duration complete)
-  `($ ,subject (fade-in ,@(when duration (list duration))
-                        ,@(when complete (list complete)))))
+(defpsmacro $fade-in (subject &rest args)
+  `($ ,subject (fade-in ,@args)))
 
-(defpsmacro $fade-out (subject &key duration complete)
-  `($ ,subject (fade-out ,@(when duration (list duration))
-                         ,@(when complete (list complete)))))
+(defpsmacro $fade-out (subject &rest args)
+  `($ ,subject (fade-out ,@args)))
 
-(defpsmacro $fade-toggle (subject &key duration easing complete)
-  `($ ,subject (fade-out ,@(when duration (list duration))
-                         ,@(when easing (list easing))
-                         ,@(when complete (list complete)))))
+(defpsmacro $fade-toggle (subject &rest args)
+  `($ ,subject (fade-out ,@args)))
 
 (defpsmacro $filter (subject filter)
   `($ ,subject (filter ,filter)))
@@ -146,10 +139,8 @@
 (defpsmacro $height (subject &optional (val nil valp))
   `($ ,subject (height ,@(when valp (list val)))))
 
-(defpsmacro $hide (subject &key duration easing complete)
-  `($ ,subject (hide ,@(when duration (list duration))
-                     ,@(when easing (list easing))
-                     ,@(when complete (list complete)))))
+(defpsmacro $hide (subject &rest args)
+  `($ ,subject (hide ,@args)))
 
 (defpsmacro $hover (subject handler-in &optional handler-out)
   `($ ,subject (hover ,handler-in ,@(when handler-out (list handler-out)))))
@@ -187,10 +178,8 @@
 (defpsmacro $last (subject)
   `($ ,subject (last)))
 
-(defpsmacro $load (subject url &key data complete)
-  `($ ,subject (load ,url
-                     ,@(when data (list data))
-                     ,@(when complete (list complete)))))
+(defpsmacro $load (subject url &rest args)
+  `($ ,subject (load ,url ,@args)))
 
 (defpsmacro $mousedown (subject handler &optional event-data)
   `(%event-handler mousedown ,subject ,handler ,event-data))
@@ -212,7 +201,6 @@
 
 (defpsmacro $mouseup (subject handler &optional event-data)
   `(%event-handler mouseup ,subject ,handler ,event-data))
-
 
 (defpsmacro $next (subject &optional selector)
   `($ ,subject (next ,@(when selector (list selector)))))
@@ -322,10 +310,8 @@
 (defpsmacro $serialize-array (subject)
   `($ ,subject (serialize-array)))
 
-(defpsmacro $show (subject &key duration easing complete)
-  `($ ,subject (show ,@(when duration (list duration))
-                     ,@(when easing (list easing))
-                     ,@(when complete (list complete)))))
+(defpsmacro $show (subject &rest args)
+  `($ ,subject (show ,@args)))
 
 (defpsmacro $siblings (subject &optional selector)
   `($ ,subject (siblings ,@(when selector (list selector)))))
@@ -336,17 +322,14 @@
 (defpsmacro $slice (subject start &optional end)
   `($ ,subject (slice ,start ,@(when end (list end)))))
 
-(defpsmacro $slide-down (subject &key duration complete)
-  `($ ,subject (slide-down ,@(when duration (list duration))
-                           ,@(when complete (list complete)))))
+(defpsmacro $slide-down (subject &rest args)
+  `($ ,subject (slide-down ,@args)))
 
-(defpsmacro $slide-toggle (subject &key duration complete)
-  `($ ,subject (slide-toggle ,@(when duration (list duration))
-                             ,@(when complete (list complete)))))
+(defpsmacro $slide-toggle (subject &rest args)
+  `($ ,subject (slide-toggle ,@args)))
 
-(defpsmacro $slide-up (subject &key duration complete)
-  `($ ,subject (slide-up ,@(when duration (list duration))
-                         ,@(when complete (list complete)))))
+(defpsmacro $slide-up (subject &rest args)
+  `($ ,subject (slide-up ,@args)))
 
 (defpsmacro $submit (subject &optional handler event-data)
   `($ ,subject (submit ,@(when event-data (list event-data))
@@ -431,7 +414,7 @@
 (defpsmacro $-now ()
   `($-> (now)))
 
-(defpsmacro $-parse-html (data &key context keep-scripts)
+(defpsmacro $-parse-html (data &optional context keep-scripts)
   `($-> (parse-h-t-m-l ,data
                        ,@(when context (list context))
                        ,@(when keep-scripts (list keep-scripts)))))
