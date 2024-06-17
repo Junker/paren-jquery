@@ -15,6 +15,7 @@
 (defpsmacro $-> (&rest chains)
   `(chain j-query ,@chains))
 
+
 (defpsmacro $add (subject selector)
   `($ ,subject (add ,selector)))
 
@@ -393,11 +394,13 @@
 (defpsmacro $-extend (target object1 &rest objects)
   `($-> (extend ,target ,object1 ,@objects)))
 
-(defpsmacro $-get (uri data handler)
-  `($-> (get ,uri ,data ,handler)))
+(defpsmacro $-get (uri &rest args)
+  `($-> (get ,uri ,@args)))
 
-(defpsmacro $-get-json (uri data handler)
-  `($-> (get-j-s-o-n ,uri ,data ,handler)))
+(defpsmacro $-get-json (uri &optional data handler)
+  `($-> (get-j-s-o-n ,uri
+                     ,@(when data (list data))
+                     ,@(when handler (list handler)))))
 
 (defpsmacro $-get-script (url &optional handler)
   `($-> (get-script ,url ,@(when handler (list handler)))))
@@ -422,8 +425,10 @@
 (defpsmacro $-parse-xml (data)
   `($-> (parse-x-m-l ,data)))
 
-(defpsmacro $-post (uri data handler)
-  `($-> (post ,uri ,data ,handler)))
+(defpsmacro $-post (uri &optional data handler)
+  `($-> (post ,uri
+              ,@(when data (list data))
+              ,@(when handler (list handler)))))
 
 (defpsmacro $-trim (str)
   `($-> (trim ,str)))
