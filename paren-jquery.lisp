@@ -156,11 +156,11 @@
 (defpsmacro $inner-width (subject &optional (val nil valp))
   `($ ,subject (inner-width ,@(when valp (list val)))))
 
-(defpsmacro $inseft-after (subject target)
-  `($ ,subject (inseft-after ,target)))
+(defpsmacro $insert-after (subject target)
+  `($ ,subject (insert-after ,target)))
 
-(defpsmacro $inseft-before (subject target)
-  `($ ,subject (inseft-before ,target)))
+(defpsmacro $insert-before (subject target)
+  `($ ,subject (insert-before ,target)))
 
 (defpsmacro $is (subject selector)
   `($ ,subject (is ,selector)))
