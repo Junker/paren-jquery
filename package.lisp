@@ -47,8 +47,8 @@
            #:$index
            #:$inner-height
            #:$inner-width
-           #:$inseft-after
-           #:$inseft-before
+           #:$insert-after
+           #:$insert-before
            #:$is
            #:$keydown
            #:$keypress
