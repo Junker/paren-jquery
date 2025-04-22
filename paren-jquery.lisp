@@ -117,7 +117,7 @@
 (defpsmacro $first (subject)
   `($ ,subject (first)))
 
-(defpsmacro $focus (subject handler &optional event-data)
+(defpsmacro $focus (subject &optional handler event-data)
   `(%event-handler focus ,subject ,handler ,event-data))
 
 (defpsmacro $focus-in (subject handler &optional event-data)
